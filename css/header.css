@@ -1,0 +1,195 @@
+/* RESET GÉNÉRAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 50px;
+    padding: 0;
+}
+
+body.shifted {
+    margin-top: 380px; /* Ajustez cette valeur en fonction de la hauteur de votre overlay */
+    transition: margin-top 0.2s ease-in-out; /* Ajoutez une transition pour une animation fluide */
+}
+
+/* HEADER PRINCIPAL */
+#site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    cursor: pointer;
+}
+
+/* Conteneur principal */
+.header-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Définir une grille de 6 colonnes égales */
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px; /* Correction du padding */
+    align-items: center;
+}
+
+/* Barre principale */
+.barre-principale {
+    background-color: var(--principale);
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.0s ease-in-out;
+}
+
+/* Icône du menu */
+.menu-icon {
+    align-items: right;
+    grid-column: 7;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Logo */
+.logo {
+    grid-column: 1 / 3;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--black);
+    font-size: 27px;
+    transition: 0.15s;
+}
+
+.logo:hover {
+    font-weight: normal;
+}
+
+/* OVERLAY HEADER */
+#header-overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    min-height: 300px;
+    max-height: 500px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    box-shadow: 0px 2px 0px var(--black);
+    /* Désactivez la transition pour la fermeture immédiate */
+    transition: none;  /* Désactive la transition */
+    z-index: 999;
+}
+
+/* Quand l'overlay est actif */
+#header-overlay.active {
+    top: 0;
+    background: var(--principale);
+}
+
+#header-overlay.active, #search-input{
+    top: 0;
+    background: var(--principale);
+}
+
+/* Barre de recherche */
+.search-container {
+    grid-column: 1 / 5; /* Prend les colonnes 1 à 4 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    align-self: end;
+}
+
+/* Ajustement du champ de recherche */
+#search-input {
+    font-family: 'Funnel Display', sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 820px;
+    font-size: 40px;
+    color: var(--black);
+    padding: 10px 0px 10px 0px ;
+    border-top: 2px solid var(--gris);
+    border-bottom: 2px solid var(--gris);
+    border-left: none;
+    border-right: none;
+}
+
+#search-input::placeholder {
+    color: var(--gris); /* Change la couleur du placeholder */
+    opacity: 1;  /* Assure une bonne visibilité */
+}
+
+/* Bouton de recherche */
+#search-button {
+    background: var(--white);
+    border: none;
+}
+
+/* Navigation */
+.nav-links {
+    grid-column: 5 / 7;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    gap: 10px;
+}
+
+/* Lien de navigation */
+.nav-links a {
+    text-transform: uppercase;
+    align-items: left;
+    color: var(--black);
+    font-size: 40px;
+    transition: 0.15s;
+}
+
+.trait-overlay {
+    border-top: 2px solid var(--black);
+}
+
+/* Animation au survol */
+.nav-links a:hover {
+    font-weight: bold;
+}
+
+/* Bouton de fermeture */
+#close-overlay {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--black);
+}
+
+/* Adaptation responsive */
+@media (max-width: 1024px) {
+    #header-overlay {
+        height: 50vh;
+    }
+
+    #search-input {
+        font-size: 30px;
+        width: 90%;
+    }
+
+    .nav-links a {
+        font-size: 30px;
+    }
+}

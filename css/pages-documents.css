@@ -1,0 +1,260 @@
+/* NOTES : marge interne (haut, droite, bas, gauche) */
+
+/* réinitialisation et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MEP SECTIONS */
+[id^="section"] {
+    /*border: 1px solid rgb(255, 0, 0); /* visionner l'espace occupé (laisser pour la conception) */
+
+    padding: 0px 0; /* pas de padding latéral */
+    text-align: left;
+    font-size: 15px;
+    color: var(--black);
+}
+
+/* LIGNE BASE */
+.ligne-base {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 40px;
+    grid-column: 1 / 7;
+    grid-row: 1;
+    align-items: center;
+    width: 100%;
+    padding: 6px 0; /* espace entre les traits et le texte */
+    position: relative; /* positionnement précis */
+}
+/**/
+.trait-base {
+    height: 2px;
+    background-color: var(--black);
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+/**/
+.trait-haut {
+    top: 0;
+}
+/**/
+.trait-bas {
+    bottom: 0;
+}
+/**/
+.base_numero-id, .base_type-imprime, .base_code {
+    text-transform: uppercase; /* Texte en majuscules */
+    font-weight: bold;
+    color: var(--black);
+    font-size: 15px;
+}
+/**/
+.base_numero-id {
+    grid-column: 1 / 8;
+}
+/**/
+.base_type-imprime {
+    grid-column: 10 / 13;
+    text-align: right;
+}
+/**/
+.base_code {
+    grid-column: 9/10;
+    text-align: left;
+    grid-row: 1;
+}
+
+/* TOUTES LES SECTIONS (hors ligne de base, voir-ci-dessus)*/
+#section-titre {
+    grid-column: 1 / 7; /* Prend toute la largeur */
+    grid-row: 2; /* Forcer l'image à la deuxième ligne */
+}
+/**/
+#section-image img {
+    width: 100%;  /* Ajuste la largeur à celle de la grille */
+    height: auto; /* Garde les proportions sans déformation */
+    display: block; /* Supprime l’espace blanc sous l’image */
+    object-fit: cover; /* Ajuste le cadrage si nécessaire */
+}
+/**/
+#section-image {
+    grid-column: 1 / 5; /* Colonne 1 à 4 */
+    grid-row: 3 / 5; /* Forcer l'image à la deuxième ligne */
+    margin-bottom: 40px;
+}
+/**/
+#section-generalite{
+    display: grid;
+    grid-column: 5 / 7; /* colonne 5 à 6 */
+    grid-row: 3 / 5; /* même ligne que l'image */
+    justify-content: flex-start; /* alignement en haut */
+    align-self: start; /* chaque bloc commence en haut */
+}
+/**/
+#section-actions {
+    grid-column: 5 / 7; /* Toujours à droite */
+    grid-row: 4; /* Passe en dessous de #section-generalite */
+    align-self: start; /* Position en haut de la ligne */
+    margin-bottom: 40px;
+}
+/**/
+#section-objet {
+    grid-column: 1 / 3;
+    grid-row: 5;
+    align-self: start; /* Position en haut de la ligne */
+}
+/**/
+#section-intervenant {
+    grid-column: 3 / 5;
+    grid-row: 5;
+    align-self: start; /* Position en haut de la ligne */
+}
+/**/
+#section-plus {
+    grid-column: 5 / 7; /* Toujours à droite */
+    grid-row: 5;
+    align-self: start; /* Position en haut de la ligne */
+}
+/**/
+#btn_action {
+    display: flex;
+    flex-direction: column; /* Les boutons seront alignés verticalement (row pour horizontalement) */
+    gap: 10px; /* Ajoute un espace de 20px entre les boutons */
+}
+/**/
+
+/* TOUS LES BLOCS CONTENUS (dans l'ordre d'apparition du site) */
+.titre-section {
+    text-transform: uppercase; /* Texte en majuscules */
+    padding: 0px 0px 18px 0px;
+    font-weight: normal;
+    color: var(--gris);
+    font-size: 15px;
+}
+/**/
+.nom-structure{
+    font-size: 37px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+/**/
+.nom-document{ 
+    text-transform: uppercase; /* Texte en majuscules */
+    font-family: 'Steelfish', sans-serif;
+    font-size: 110px;
+    line-height: 1.1;
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+}
+/**/
+/*texte en gras*/
+.s3_parametre-label, .s5_parametre-label, .s6_parametre-label, .s7_parametre-label {
+    padding: 8px 0px 0px 0px;
+    font-weight: bold;
+
+}
+/**/
+/*modifiable pour chaque document*/
+.s3_parametre-valeur, .s5_parametre-valeur, .s6_parametre-valeur, .s7_parametre-valeur {
+    padding: 0px 0px 8px 0px;
+    font-weight: normal;
+}
+
+/* BOUTONS SECTIONS ACTIONS*/
+.btn_action-consult, .btn_action-download, .btn_action-borrow {
+    padding: 10px 0;
+    text-align: left; /* Alignement du texte à gauche */
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase; /* Texte en majuscules */
+    color: var(--black);
+
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border: 2px solid var(--black);
+    height: 30px; /* Ajustez selon besoin */
+    border-radius: 15px;
+    padding-left: 16px; /* Espace à gauche pour le texte */
+    position: relative;
+    cursor: pointer; /* Curseur interactif */
+    transition: all 0.3s ease-in-out; /* Effet au survol */
+    overflow: hidden; /* Pour s'assurer que l'icône s'intègre bien */
+}
+/**/
+/*  largeur des boutons (consult et download) */
+.btn_action-consult {
+    width: 160px;
+}
+/**/
+.btn_action-borrow {
+    width: 160px;
+}
+/**/
+.btn_action-download {
+    width: 175px;
+}
+/**/
+/* icône flèche des deux boutons en même temps */
+.btn_action-consult .icon, .btn_action-download .icon, .btn_action-borrow .icon{
+    background-color: var(--black);
+    color: var(--white);
+    width: 35px;
+    height: 30px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+/**/
+/* ajustement de l’image de la flèche */
+.icon {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+.icon svg {
+    width: 19px;
+    height: auto;
+}
+/**/
+/* effet au survol de la flèche */
+.btn_action-consult:hover .fleche {
+    transform: rotate(360deg);
+    transition: transform 0.6s ease-in-out;
+}
+.btn_action-borrow:hover .fleche {
+    transform: rotate(630deg);
+    transition: transform 1s ease-in-out;
+}
+.btn_action-download:hover .fleche {
+    transform: rotate(450deg);
+    transition: transform 0.8s ease-in-out;
+}
+/**/
+/* effet au survol des boutons */
+.btn_action-consult:hover {
+    background-color: var(--sup);
+    color: var(--white); 
+}
+.btn_action-borrow:hover {
+    background-color: var(--principale);
+    color: var(--black); 
+}
+.btn_action-download:hover {
+    background-color: var(--secondaire);
+    color: var(--white);
+}

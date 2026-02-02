@@ -1,0 +1,77 @@
+/* réinitialisation et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COULEURS */
+:root {
+    --principale: rgb(176, 255, 29);
+    --secondaire: rgb(50, 90, 255);
+    --sup: rgb(255, 90, 70);
+    --black: rgb(36, 42, 42);
+    --gris: rgb(129, 129, 129);
+    --white: rgb(255, 255, 255);
+}
+
+@font-face {
+    font-family: 'Steelfish';
+    src: url('../src/font/steelfish/Steelfish-ExtraBold.woff2') format('woff2'),
+        url('../src/font/steelfish/Steelfish-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* SYSTEME DE GRILLE DU SITE ENTIER*/
+/* Système de grille principal */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Colonnes fixes de 200px */
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    gap: 20px 40px;
+    width: max-content;
+    margin: 0 auto;
+}
+
+/* Titre principal (h1) */
+.titre {
+    grid-column: 1 / 7;
+    grid-row: 1;
+    font-family: 'Steelfish', sans-serif;
+    font-size: 125px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--black);
+    text-align: left; /* Centrer le texte */
+}
+
+/* Section présentation projet */
+#presentation-projet {
+    grid-column: 1 / 5;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement entre les éléments */
+}
+
+/* Sous-titre (h2) */
+.chapitre {
+    font-size: 40px;
+    line-height: 1.2;
+    color: var(--black);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Paragraphe (p) */
+.texte {
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--black);
+    max-width: 800px; /* Pour limiter la largeur et améliorer la lecture */
+}
+h2{
+    padding: 50px 0px 0px 0px;
+}
